@@ -17,10 +17,10 @@ if [ $FIRST_RUN -eq 1 ]; then
 	fi
 
 	echo 'Start cluster-preprocess.py'
-	time python cluster-preprocess.py $corpusName
+	time python3 cluster-preprocess.py $corpusName
 
 	echo 'Start preprocess.py'
-	time python preprocess.py $corpusName
+	time python3 preprocess.py $corpusName
 
 	cp ../data/$corpusName/input/embeddings.txt ../data/$corpusName/init/embeddings.txt
 	cp ../data/$corpusName/input/keywords.txt ../data/$corpusName/init/seed_keywords.txt
@@ -32,7 +32,7 @@ if [ ! -d ../data/$corpusName/$taxonName ]; then
 fi
 
 echo 'Start TaxonGen'
-python main.py
+python3 main.py
 
 echo 'Generate compressed taxonomy'
 if [ ! -d ../data/$corpusName/taxonomies ]; then

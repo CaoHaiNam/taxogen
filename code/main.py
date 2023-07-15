@@ -59,25 +59,31 @@ def recur(input_dir, node_dir, n_cluster, parent, n_cluster_iter, filter_thre,\
 
     # filter the keywords
     if caseolap is False:
-        try:
-            children = run_clustering(full_data, df.doc_id_file, df.seed_keyword_file, n_cluster, node_dir, parent, \
+        # try:
+        #     children = run_clustering(full_data, df.doc_id_file, df.seed_keyword_file, n_cluster, node_dir, parent, \
+        #                               df.cluster_keyword_file, df.hierarchy_file, df.doc_membership_file)
+        # except:
+        #     print('Clustering not finished.')
+        #     return
+        children = run_clustering(full_data, df.doc_id_file, df.seed_keyword_file, n_cluster, node_dir, parent, \
                                       df.cluster_keyword_file, df.hierarchy_file, df.doc_membership_file)
-        except:
-            print('Clustering not finished.')
-            return
         copyfile(df.seed_keyword_file, df.filtered_keyword_file)
     else:
         ## Adaptive Clustering, maximal n_cluster_iter iterations
         for iter in range(n_cluster_iter):
             if iter > 0:
                 df.seed_keyword_file = df.filtered_keyword_file
-            try:
-                children = run_clustering(full_data, df.doc_id_file, df.seed_keyword_file, n_cluster, node_dir, parent,\
+            
+            # try:
+            #     children = run_clustering(full_data, df.doc_id_file, df.seed_keyword_file, n_cluster, node_dir, parent,\
+            #                    df.cluster_keyword_file, df.hierarchy_file, df.doc_membership_file)
+            # except:
+            #     print('Clustering not finished.')
+            #     return
+            
+            children = run_clustering(full_data, df.doc_id_file, df.seed_keyword_file, n_cluster, node_dir, parent,\
                                df.cluster_keyword_file, df.hierarchy_file, df.doc_membership_file)
-            except:
-                print('Clustering not finished.')
-                return
-
+            
             start = time.time()
             main_caseolap(df.link_file, df.doc_membership_file, df.cluster_keyword_file, df.caseolap_keyword_file)
             main_rank_phrase(df.caseolap_keyword_file, df.filtered_keyword_file, filter_thre)
@@ -112,19 +118,19 @@ def main(opt):
     level = 0
 
     # our method
-    root_dir = opt['data_dir'] + 'our-l3-0.15/'
-    copy_tree(init_dir, root_dir)
-    recur(input_dir, root_dir, n_cluster, '*', n_cluster_iter, filter_thre, n_expand, level, True, True)
+    # root_dir = opt['data_dir'] + 'our-l3-0.15/'
+    # copy_tree(init_dir, root_dir)
+    # recur(input_dir, root_dir, n_cluster, '*', n_cluster_iter, filter_thre, n_expand, level, True, True)
 
     # without caseolap
     # root_dir = opt['data_dir'] + 'ablation-no-caseolap-l3/'
     # copy_tree(init_dir, root_dir)
     # recur(input_dir, root_dir, n_cluster, '*', n_cluster_iter, filter_thre, n_expand, level, False, True)
 
-    # # without local embedding
-    # root_dir = opt['data_dir'] + 'ablation-no-local-embedding-l3-0.15/'
-    # copy_tree(init_dir, root_dir)
-    # recur(input_dir, root_dir, n_cluster, '*', n_cluster_iter, filter_thre, n_expand, level, True, False)
+    # without local embedding
+    root_dir = opt['data_dir'] + 'ablation-no-local-embedding-l3-0.15/'
+    copy_tree(init_dir, root_dir)
+    recur(input_dir, root_dir, n_cluster, '*', n_cluster_iter, filter_thre, n_expand, level, True, False)
 
     # without caseolap and local embedding
     # root_dir = opt['data_dir'] + 'hc-l3/'
