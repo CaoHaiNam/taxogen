@@ -122,7 +122,7 @@ def avg_emb_with_distinct(ele_map, embs_from, dist_map, vec_size):
 	avg_emb = [0] * vec_size
 	t_weight = 0
 
-	for key, value in ele_map.iteritems():
+	for key, value in ele_map.items():
 		t_emb = embs_from[key]
 		w = value * dist_map[key]
 		for i in range(vec_size):
@@ -140,7 +140,7 @@ def avg_emb(ele_map, embs_from, vec_size):
 	avg_emb = [0] * vec_size
 	t_weight = 0
 
-	for key, value in ele_map.iteritems():
+	for key, value in ele_map.items():
 		t_emb = embs_from[key]
 		w = value
 		for i in range(vec_size):
