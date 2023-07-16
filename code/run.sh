@@ -4,7 +4,7 @@ corpusName=dblp
 ## Name of the taxonomy
 taxonName=our-l3-0.25
 ## If need preprocessing from raw input, set it to be 1, otherwise, set 0
-FIRST_RUN=${FIRST_RUN:- 0}
+FIRST_RUN=${FIRST_RUN:- 1}
 
 if [ $FIRST_RUN -eq 1 ]; then
 	echo 'Start data preprocessing'
@@ -16,8 +16,8 @@ if [ $FIRST_RUN -eq 1 ]; then
 		mkdir ../data/$corpusName/init
 	fi
 
-	echo 'Start cluster-preprocess.py'
-	time python3 cluster-preprocess.py $corpusName
+	# echo 'Start cluster-preprocess.py'
+	# time python3 cluster-preprocess.py $corpusName
 
 	echo 'Start preprocess.py'
 	time python3 preprocess.py $corpusName
