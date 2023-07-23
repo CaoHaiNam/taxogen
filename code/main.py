@@ -117,7 +117,7 @@ def main(opt):
     n_cluster_iter = opt['n_cluster_iter']
     level = 0
 
-    # our method
+    # our method 
     # root_dir = opt['data_dir'] + 'our-l3-0.15/'
     # copy_tree(init_dir, root_dir)
     # recur(input_dir, root_dir, n_cluster, '*', n_cluster_iter, filter_thre, n_expand, level, True, True)

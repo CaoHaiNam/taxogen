@@ -99,7 +99,7 @@ def change_params(pd, iter):
 
 def load_dblp_params_method():
     pd = dict()
-    pd['data_dir'] = '/home/namch_hust1_gmail_com/taxogen/data/skill/'
+    pd['data_dir'] = '/home/namch_hust1_gmail_com/taxogen/data/dblp/'
     pd['doc_file'] = pd['data_dir'] + 'input/papers.txt'
     pd['doc_keyword_cnt_file'] = pd['data_dir'] + 'input/keyword_cnt.txt'
     pd['input_dir'] = pd['data_dir'] + 'input/'

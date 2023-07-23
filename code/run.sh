@@ -16,8 +16,8 @@ if [ $FIRST_RUN -eq 1 ]; then
 		mkdir ../data/$corpusName/init
 	fi
 
-	# echo 'Start cluster-preprocess.py'
-	# time python3 cluster-preprocess.py $corpusName
+	echo 'Start cluster-preprocess.py'
+	time python3 cluster-preprocess.py $corpusName
 
 	echo 'Start preprocess.py'
 	time python3 preprocess.py $corpusName
