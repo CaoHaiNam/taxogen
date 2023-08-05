@@ -21,7 +21,6 @@ class Clusterer:
         self.inertia_scores = None
 
     def fit(self):
-        print(type(self.data))
         self.clus.fit(self.data)
         labels = self.clus.labels_
         for idx, label in enumerate(labels):
@@ -61,8 +60,8 @@ def run_clustering(full_data, doc_id_file, filter_keyword_file, n_cluster, paren
     dataset = SubDataSet(full_data, doc_id_file, filter_keyword_file)
     print('Start clustering for ', len(dataset.keywords), ' keywords under parent:', parent_description)
     ## TODO: change later here for n_cluster selection from a range
-    print(dataset.embeddings)
     print(type(dataset.embeddings))
+    print(dataset.embeddings.shape)
     clus = Clusterer(dataset.embeddings, n_cluster)
     clus.fit()
     print('Done clustering for ', len(dataset.keywords), ' keywords under parent:', parent_description)
