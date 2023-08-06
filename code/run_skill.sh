@@ -1,8 +1,8 @@
 #!/bin/bash
 ## Name of the input corpus
-corpusName=skill
+corpusName=ocp_skills
 ## Name of the taxonomy
-taxonName=namch
+taxonName=occupational_skill_taxonomy
 ## If need preprocessing from raw input, set it to be 1, otherwise, set 0
 FIRST_RUN=${FIRST_RUN:- 1}
 
