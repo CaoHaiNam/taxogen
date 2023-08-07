@@ -32,7 +32,7 @@ if [ ! -d ../data/$corpusName/$taxonName ]; then
 fi
 
 echo 'Start TaxonGen'
-python3 main.py
+python3 main_ocp_skills.py
 
 echo 'Generate compressed taxonomy'
 if [ ! -d ../data/$corpusName/taxonomies ]; then
