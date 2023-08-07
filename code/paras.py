@@ -111,7 +111,7 @@ def load_dblp_params_method():
     # return pd
 
     pd = dict()
-    pd['data_dir'] = '/home/namch_hust1_gmail_com/taxogen/data/ocp_skills/'
+    pd['data_dir'] = '/home/namch_hust1_gmail_com/taxogen/data/dblp/'
     pd['doc_file'] = pd['data_dir'] + 'input/papers.txt'
     pd['doc_keyword_cnt_file'] = pd['data_dir'] + 'input/keyword_cnt.txt'
     pd['input_dir'] = pd['data_dir'] + 'input/'
@@ -122,3 +122,16 @@ def load_dblp_params_method():
     pd['n_cluster_iter'] = 2
     return pd
 
+def load_ocp_skills_params_method():
+
+    pd = dict()
+    pd['data_dir'] = '/home/namch_hust1_gmail_com/taxogen/data/ocp_skills/'
+    pd['doc_file'] = pd['data_dir'] + 'input/papers.txt'
+    pd['doc_keyword_cnt_file'] = pd['data_dir'] + 'input/keyword_cnt.txt'
+    pd['input_dir'] = pd['data_dir'] + 'input/'
+    pd['root_node_dir'] = pd['data_dir'] + 'cluster/'
+    pd['n_cluster'] = 4
+    pd['filter_thre'] = 0.25
+    pd['n_expand'] = 100
+    pd['n_cluster_iter'] = 2
+    return pd
